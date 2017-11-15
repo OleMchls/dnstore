@@ -3,7 +3,7 @@ defmodule Dnstore do
   Documentation for Dnstore.
   """
 
-  @client %Dnsimple.Client{access_token: Application.get_env(:dnsimple, :token)}
+  @client %Dnsimple.Client{access_token: Application.get_env(:dnstore, :token)}
   @zone Application.get_env(:dnstore, :domain)
   @account Application.get_env(:dnstore, :account_id)
 

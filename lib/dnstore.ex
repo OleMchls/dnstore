@@ -1,21 +1,9 @@
 defmodule Dnstore do
-  @moduledoc """
-  Documentation for Dnstore.
-  """
 
   @client %Dnsimple.Client{access_token: Application.get_env(:dnstore, :token)}
   @zone Application.get_env(:dnstore, :domain)
   @account Application.get_env(:dnstore, :account_id)
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Dnstore.hello
-      :world
-
-  """
   def set(key, value) do
     Dnsimple.Zones.create_zone_record(@client, @account, @zone, %{
       name: keyify(key),

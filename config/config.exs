@@ -29,6 +29,13 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
+config :dnsimple,
+  token: System.get_env("DNSIMPLE_TOKEN")
+
 config :cipher, keyphrase: "testiekeyphraseforcipher",
                 ivphrase: "testieivphraseforcipher",
                 magic_token: "magictoken"
+
+config :dnstore,
+  account_id: System.get_env("DNSIMPLE_ACCOUNT"),
+  domain: "dnstore.cloud"

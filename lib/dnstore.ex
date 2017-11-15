@@ -25,6 +25,12 @@ defmodule Dnstore do
     })
   end
 
+  def get(key) do
+    fqdn = String.to_charlist("#{keyify(key)}.#{@zone}")
+    [[ value ]] = :inet_res.lookup(fqdn, :in, :txt)
+    Cipher.decrypt(to_string(value))
+  end
+
   defp keyify(key) do
     :crypto.hash(:sha256, key)
     |> Base.encode16
